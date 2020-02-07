@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import {useDebounce, useHistoryDb} from "./hooks";
+import {SearchResult} from "./SearchResult";
+
 import './App.css';
+import {testFunctionFactory} from "./helpers";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [search, setSearch] = useState("");
+    const debouncedSearchTerm = useDebounce(search, 500);
+
+
+    const results = useHistoryDb(debouncedSearchTerm, 20, testFunctionFactory(debouncedSearchTerm));
+
+    return (
+        <div className="App">
+            <div className="inputContainer">
+                <input value={search} onChange={e => setSearch(e.target.value)}/>
+            </div>
+            <div className="results">
+                {results.map(result => <SearchResult key={result.url} {...result} />)}
+            </div>
+        </div>
+    );
 }
 
 export default App;

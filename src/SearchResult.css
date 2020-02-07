@@ -1,0 +1,39 @@
+.SearchResult {
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+}
+
+.SearchResult .ResultText * {
+  white-space: nowrap;
+}
+
+.SearchResult .ResultText {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.SearchResult:nth-child(odd) {
+  background-color: var(--light-bg-color);
+}
+
+.SearchResult a {
+  font-size: larger;
+  font-weight: bold;
+  /*padding: 0.5em 0;*/
+}
+.SearchResult .ImgContainer {
+  padding-right: 1em;;
+}
+
+.SearchResult .ImgContainer img {
+  width: 2em;
+}
+
+.SearchResult .value {
+  font-size: xx-small;
+  text-align: right;
+  padding-left: 1em;
+}
