@@ -1,23 +1,31 @@
-import React, {useState} from 'react';
+import React, {FunctionComponent, useEffect, useRef, useState} from 'react';
 import {useDebounce, useHistoryDb} from "../hooks";
 import {SearchResult} from "./SearchResult";
 
 import './App.css';
 
-function App() {
+const App: FunctionComponent = () => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if(inputRef.current){
+            inputRef.current.focus()
+        }
+    }, [inputRef])
     const [search, setSearch] = useState("");
-    const debouncedSearchTerm = useDebounce(search, 500);
+    const debouncedSearchTerm = useDebounce(search, 250);
 
-    const results = useHistoryDb(debouncedSearchTerm, 20);
+    const {results, isSearching} = useHistoryDb(debouncedSearchTerm, 20);
 
     return (
         <div className="App">
             <div className="inputContainer">
-                <input value={search} onChange={e => setSearch(e.target.value)}/>
+                <input ref={inputRef} value={search} onChange={e => setSearch(e.target.value)}/>
             </div>
-            <div className="results">
-                {results.map(result => <SearchResult key={result.url} {...result} />)}
-            </div>
+            {isSearching ? <div>Searching</div> :
+                <div className="results">
+                    {results.map(result => <SearchResult key={result.url} {...result} />)}
+                </div>
+            }
         </div>
     );
 }
