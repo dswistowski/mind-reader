@@ -1,9 +1,12 @@
+// @ts-ignore
 import React, {useState} from "react";
 
 import './SearchResult.css';
+// @ts-ignore
 import logo from './logo192.png'
+import {UrlEntry} from "./types";
 
-export function SearchResult({host, url, title, value}) {
+export function SearchResult({host, url, title, value}: UrlEntry) {
     const [thumbUrl, setThumbUrl] = useState(`https://${host}/favicon.ico`)
 
     return (
@@ -15,7 +18,7 @@ export function SearchResult({host, url, title, value}) {
                 <a href={url} title={title}>{url}</a>
                 <div>{title}</div>
             </div>
-            <div className="value">{Number.parseFloat(value).toFixed(2)}</div>
+            <div className="value">{new Number(value).toFixed(2)}</div>
         </div>
     )
 }

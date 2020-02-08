@@ -3,14 +3,12 @@ import {useDebounce, useHistoryDb} from "./hooks";
 import {SearchResult} from "./SearchResult";
 
 import './App.css';
-import {testFunctionFactory} from "./helpers";
 
 function App() {
     const [search, setSearch] = useState("");
     const debouncedSearchTerm = useDebounce(search, 500);
 
-
-    const results = useHistoryDb(debouncedSearchTerm, 20, testFunctionFactory(debouncedSearchTerm));
+    const results = useHistoryDb(debouncedSearchTerm, 20);
 
     return (
         <div className="App">
