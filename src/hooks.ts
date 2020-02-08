@@ -18,7 +18,6 @@ export function useDebounce(value: string, delay: number): string {
 
 
 export function useHistoryDb(query: string, limit: number) {
-    const [isSearching, setIsSearching] = useState(false);
     const [results, setResults] = useState<UrlEntry[]>([]);
     useEffect(() => {
         if (query) {
@@ -56,5 +55,5 @@ export function useHistoryDb(query: string, limit: number) {
         }
     }, [query, limit]);
 
-    return {results, isSearching}
+    return results
 }

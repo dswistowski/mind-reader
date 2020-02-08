@@ -1,0 +1,17 @@
+.Header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 0 0 1em;
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header input {
+    padding: .5em 1em;
+    font-size: large;
+    width: 75vw;
+    border-radius: 3px;
+    border: none;
+}

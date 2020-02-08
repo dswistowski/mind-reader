@@ -25,11 +25,15 @@
   /*padding: 0.5em 0;*/
 }
 .SearchResult .ImgContainer {
-  padding-right: 1em;;
+  padding-right: 1em;
+  align-items: center;
+  display: flex;
 }
 
 .SearchResult .ImgContainer img {
-  width: 2em;
+  width: 1em;
+  height: 1em;
+
 }
 
 .SearchResult .value {

@@ -1,0 +1,7 @@
+.ShowTabs {
+    cursor: pointer;
+    padding: .5em 1em;
+    font-size: large;
+    border-radius: 3px;
+    border: none;
+}

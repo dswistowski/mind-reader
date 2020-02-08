@@ -3,8 +3,9 @@ import React, {FunctionComponent, useState} from "react";
 
 import './SearchResult.css';
 // @ts-ignore
-import logo from './assets/logo192.png'
+import logo from './assets/brain.png'
 import {UrlEntry} from "../types";
+import "./SearchResult.css"
 
 export const SearchResult: FunctionComponent<UrlEntry> = ({host, url, title, value}) => {
     const [thumbUrl, setThumbUrl] = useState(`https://${host}/favicon.ico`)
