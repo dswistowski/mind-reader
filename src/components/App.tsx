@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useDebounce, useHistoryDb} from "./hooks";
+import {useDebounce, useHistoryDb} from "../hooks";
 import {SearchResult} from "./SearchResult";
 
 import './App.css';

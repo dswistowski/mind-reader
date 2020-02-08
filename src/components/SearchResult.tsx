@@ -1,12 +1,12 @@
 // @ts-ignore
-import React, {useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 
 import './SearchResult.css';
 // @ts-ignore
-import logo from './logo192.png'
-import {UrlEntry} from "./types";
+import logo from './assets/logo192.png'
+import {UrlEntry} from "../types";
 
-export function SearchResult({host, url, title, value}: UrlEntry) {
+export const SearchResult: FunctionComponent<UrlEntry> = ({host, url, title, value}) => {
     const [thumbUrl, setThumbUrl] = useState(`https://${host}/favicon.ico`)
 
     return (
@@ -18,7 +18,7 @@ export function SearchResult({host, url, title, value}: UrlEntry) {
                 <a href={url} title={title}>{url}</a>
                 <div>{title}</div>
             </div>
-            <div className="value">{new Number(value).toFixed(2)}</div>
+            <div className="value">{value.toFixed(2)}</div>
         </div>
     )
 }

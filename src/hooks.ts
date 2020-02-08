@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {UrlEntry} from "./types";
 import {testFunctionFactory} from "./helpers";
+import {getDatabase} from "./database";
 
 export function useDebounce(value: string, delay: number): string {
     const [debounced, setDebounced] = useState(value);
@@ -21,9 +22,8 @@ export function useHistoryDb(query: string, limit: number) {
     useEffect(() => {
         if (query) {
             const test = testFunctionFactory(query);
-            const dbRequest = indexedDB.open('history', 1)
-            dbRequest.onsuccess = event => {
-                const db = dbRequest.result;
+
+            getDatabase().then(db => {
                 const objectStore = db.transaction(["history"], "readonly").objectStore("history");
                 const valueIndex = objectStore.index('value');
                 const results: UrlEntry[] = [];
@@ -38,15 +38,14 @@ export function useHistoryDb(query: string, limit: number) {
                         if (results.length < limit) {
                             cursor.continue()
                         } else {
-                            console.log("found");
                             setResult(results)
                         }
                     } else {
-                        console.log("end of search");
                         setResult(results)
                     }
                 }
-            }
+            })
+
         } else {
             setResult([])
         }
