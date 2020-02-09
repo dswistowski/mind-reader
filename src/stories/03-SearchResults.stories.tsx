@@ -15,4 +15,4 @@ export default {
 
 export const Empty = () => <SearchResults results={generateUrlEntries(0)}/>;
 export const Few = () => <SearchResults results={generateUrlEntries(4)}/>;
-export const Lots = () => <SearchResults results={generateUrlEntries(500)}/>;
+export const Lots = () => <SearchResults results={generateUrlEntries(30)}/>;
