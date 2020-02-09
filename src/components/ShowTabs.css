@@ -1,7 +1,7 @@
 .ShowTabs {
     cursor: pointer;
     padding: .5em 1em;
-    font-size: large;
+    font-size: x-large;
     border-radius: 3px;
     border: none;
     color: var(--main-text-color);

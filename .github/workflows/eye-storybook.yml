@@ -1,0 +1,13 @@
+name: "Chromatic"
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn install
+    - name: run eyes test
+      env:
+        APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+      run: npx eyes-storybook
