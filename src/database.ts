@@ -59,7 +59,7 @@ let db: IDBDatabase | null = null;
 let gl_lock = 0;
 
 export async function getDatabase(): Promise<IDBDatabase> {
-
+    console.log("get database", )
     while (gl_lock > 0 && !db) {
         await wait(50);
     }
@@ -71,6 +71,7 @@ export async function getDatabase(): Promise<IDBDatabase> {
     const dbRequest = indexedDB.open('history', 1);
 
     dbRequest.onupgradeneeded = async event => {
+        console.log("old db found, upgrading");
         const db = dbRequest.result;
         if (event.newVersion !== null && event.newVersion <= 1) {
             const objectStore = db.createObjectStore("history", {keyPath: "url"});
@@ -92,5 +93,6 @@ export async function getDatabase(): Promise<IDBDatabase> {
         db = null
     };
     gl_lock--;
+    console.log("database returned");
     return db
 }
