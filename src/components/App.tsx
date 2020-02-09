@@ -1,14 +1,9 @@
 import React, {FunctionComponent, useState} from 'react';
 import {useDebounce, useHistoryDb} from "../hooks";
-import {SearchResult} from "./SearchResult";
 
 import './App.css';
-import {UrlEntry} from "../types";
 import {Header} from "./Header";
-
-const SearchResults: FunctionComponent<{results: UrlEntry[]}> = ({results}) => <div className="results">
-    {results.map(result => <SearchResult key={result.url} {...result} />)}
-</div>
+import {SearchResults} from "./SearchResults";
 
 const App: FunctionComponent = () => {
     const [search, setSearch] = useState("");
