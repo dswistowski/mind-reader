@@ -1,5 +1,13 @@
 name: "Eye Storybook"
-on: push
+on:
+  push:
+    paths:
+      - '**.tsx'
+      - '**.jsx'
+    branches-ignore:
+      - 'master'
+    tags-ignore:
+      - '*'
 
 jobs:
   test:
