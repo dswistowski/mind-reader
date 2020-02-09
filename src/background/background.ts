@@ -7,7 +7,6 @@ function scheduleRefresh() {
     chrome.alarms.create('refresh', {periodInMinutes: REFRESH_TIME})
 }
 
-
 async function refresh() {
     const db = await getDatabase();
     const history = (await latestHistory(REFRESH_TIME/60)).map(historyParser);
@@ -15,15 +14,15 @@ async function refresh() {
 }
 
 
-export function onAlarm(alarm: chrome.alarms.Alarm) {
+export async function onAlarm(alarm: chrome.alarms.Alarm) {
     if (alarm && alarm.name === 'refresh') {
-        refresh()
+        await refresh()
     } else {
-        console.log("unknown alarm", alarm)
+        console.error("unknown alarm", alarm)
     }
 }
 
 export async function onInstalled() {
     scheduleRefresh();
-    refresh();
+    await refresh();
 }
