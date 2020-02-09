@@ -26,7 +26,7 @@ jobs:
     - run: yarn lint
     - run: yarn test
       env:
-        CI=true
+        CI: true
     - name: run eyes test
       env:
         APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
