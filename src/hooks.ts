@@ -57,3 +57,10 @@ export function useHistoryDb(query: string, limit: number) {
 
     return results
 }
+
+export function useAppBusiness(): [string, (value: string) => void, UrlEntry[]] {
+    const [search, setSearch] = useState("");
+    const debouncedSearchTerm = useDebounce(search, 250);
+    const results = useHistoryDb(debouncedSearchTerm, 20);
+    return [search, setSearch, results]
+}

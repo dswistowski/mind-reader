@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {ShowTabs} from "../components/ShowTabs";
 
 export default {
@@ -8,7 +8,5 @@ export default {
         info: {inline: true}
     }
 };
-
-
 
 export const Empty = () => <ShowTabs />;
