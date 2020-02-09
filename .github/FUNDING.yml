@@ -1,7 +1,8 @@
 # These are supported funding model platforms
 
-github: dswistowski
-custom: ['https://paypal.me/dswistowski?locale.x=en_GB']
+#github: dswistowski
+custom: ['https://paypal.me/dswistowski']
+liberapay: dswistowski
 #patreon: # Replace with a single Patreon username
 #open_collective: # Replace with a single Open Collective username
 #ko_fi: # Replace with a single Ko-fi username
