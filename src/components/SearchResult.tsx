@@ -10,7 +10,7 @@ export const SearchResult: FunctionComponent<UrlEntry> = ({host, url, title, val
     const [thumbUrl, setThumbUrl] = useState(`https://${host}/favicon.ico`)
 
     return (
-        <div className="SearchResult">
+        <div data-testid="search-result" className="SearchResult">
             <div className="ImgContainer">
                 <img src={thumbUrl} onError={()=> setThumbUrl(logo)} />
             </div>
