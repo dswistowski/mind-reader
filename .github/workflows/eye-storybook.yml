@@ -7,26 +7,26 @@ on:
       - '*'
 
 x-get-cache: &get-cache
-  name: Get yarn cache
-  id: yarn-cache
-  run: echo "::set-output name=dir::$(yarn cache dir)"
 
-x-use-cache: &use-cache
-  uses: actions/cache@v1
-  with:
-    path: ${{ steps.yarn-cache.outputs.dir }}
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-yarn-
+
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - *get-cache
-    - *use-cache
-    - run: yarn
+    - name: Get yarn cache
+      id: yarn-cache
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - uses: actions/cache@v1
+      with:
+        path: ${{ steps.yarn-cache.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: Install packages
+      run: yarn
     - run: yarn lint
     - run: yarn test
       env:
