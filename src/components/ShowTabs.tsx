@@ -12,4 +12,4 @@ export const ShowTabs: FunctionComponent = () => <button data-testid="show-tabs-
         });
     }}>
     Close
-</button>
+</button>;
