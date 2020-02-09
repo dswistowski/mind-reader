@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@applitools/eyes-storybook": "^3.2.5",
     "@storybook/addon-actions": "^5.3.12",
     "@storybook/addon-info": "^5.3.12",
     "@storybook/addon-links": "^5.3.12",
