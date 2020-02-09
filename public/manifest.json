@@ -1,15 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "New tab page with handy history search",
-  "description": "Search history as default action to ",
+  "name": "\uD83E\uDDE0 mind reader",
+  "description": "New tab page with handy history search",
   "author": "damian@swistowski.org",
   "version": "0.0.1",
   "permissions": [
-    "https://www.google.com/search/*",
     "history",
     "storage",
     "alarms"
-
   ],
   "chrome_url_overrides" : {
     "newtab": "index.html"
