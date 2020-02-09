@@ -10,7 +10,6 @@ type HeaderProps = {
 
 export const Header: FunctionComponent<HeaderProps> = ({search, onUpdateSearch, showButton}) =>
     <div className="Header">
-        <input data-testid="search-input" placeholder="What is in your mind" value={search}
-               onChange={e => onUpdateSearch(e.target.value)}/>
+        <input data-testid="search-input" placeholder="What is in your mind" value={search} onChange={e => onUpdateSearch(e.target.value)}/>
         {showButton ? <ShowTabs/> : ""}
     </div>
