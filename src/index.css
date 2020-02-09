@@ -49,6 +49,7 @@ table {
 
 :root {
   --main-bg-color: #35363a;
+  --med-bg-color: #3E3F43;
   --light-bg-color: #46474B;
   --main-text-color: #DFE4EB;
 }
@@ -68,13 +69,14 @@ a:visited {
 body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 1em;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

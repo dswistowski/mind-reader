@@ -11,5 +11,5 @@ export const ShowTabs: FunctionComponent = () => <button className="ShowTabs"
             }
         });
     }}>
-    Chrome Tab
+    Close
 </button>

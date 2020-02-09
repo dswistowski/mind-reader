@@ -4,4 +4,9 @@
     font-size: large;
     border-radius: 3px;
     border: none;
+    color: var(--main-text-color);
+    background-color: var(--light-bg-color);
+}
+.ShowTabs:hover {
+    background-color: var(--med-bg-color);
 }

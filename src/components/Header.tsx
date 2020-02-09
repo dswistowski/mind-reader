@@ -5,11 +5,12 @@ import "./Header.css"
 type HeaderProps = {
     search: string,
     onUpdateSearch: (value: string) => void
+    showButton?: boolean
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({search, onUpdateSearch}) =>
+export const Header: FunctionComponent<HeaderProps> = ({search, onUpdateSearch, showButton}) =>
     <div className="Header">
         <input placeholder="What is in your mind" value={search}
                onChange={e => onUpdateSearch(e.target.value)}/>
-        {chrome.tabs ? <ShowTabs/> : ""}
+        {showButton ? <ShowTabs/> : ""}
     </div>
