@@ -6,10 +6,6 @@ on:
     tags-ignore:
       - '*'
 
-x-get-cache: &get-cache
-
-
-
 jobs:
   test:
     runs-on: ubuntu-latest
