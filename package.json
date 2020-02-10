@@ -21,15 +21,17 @@
     "prebuild": "rimraf build",
     "build": "npm-run-all build:*",
     "build:app": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build:manifest": "node ./make-manifest.js > build/manifest.json",
     "build:bg": "webpack --mode production --config webpack.background.js",
     "prezip": "rimraf *.zip",
     "zip": "cd build; zip -r ../build.zip * -x '*.DS_Store'",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "release": "npm-run-all build zip",
+    "release-it": "release-it",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "npx eslint --ext tsx --ext js --ext ts src"
+    "lint": "eslint --ext tsx --ext js --ext ts src"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -68,6 +70,7 @@
     "jest-sinon": "^1.0.2",
     "npm-run-all": "^4.1.5",
     "react-docgen-typescript-loader": "^3.6.0",
+    "release-it": "^12.4.3",
     "rimraf": "^3.0.1",
     "sinon-chrome": "^3.0.1",
     "ts-jest": "^25.2.0",
